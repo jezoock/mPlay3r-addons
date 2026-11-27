@@ -111,6 +111,24 @@
       "sizeBytes": 28405
     },
     {
+      "id": "mplay3r.radio-bbox",
+      "name": "Bbox Radios (Bouygues)",
+      "version": "1.0.0",
+      "description": "ISP box micro-plugin adding Bouygues Bbox local M3U radio bouquet (and French FM/DAB+ IP fallback streams) to the mPlay3r Radio plugin.",
+      "category": "source",
+      "permissions": [
+        "network",
+        "storage"
+      ],
+      "minCoreVersion": "0.1.0",
+      "author": "jezoock",
+      "homepage": "https://github.com/jezoock/mPlay3r-addons",
+      "runtime": "all",
+      "entry": "./dist/radio-bbox.js",
+      "sha256": "0abd9b09130e358d1b075379559d1e3fdaba8110f500535c6a54089a6a0215f9",
+      "sizeBytes": 6839
+    },
+    {
       "id": "mplay3r.radio-freebox",
       "name": "Freebox Radios (Multiposte)",
       "version": "1.0.0",
@@ -127,6 +145,42 @@
       "entry": "./dist/radio-freebox.js",
       "sha256": "868eb7d46db033ddc509c00470004cb5b997e43a874f702c648e421161fc4ae5",
       "sizeBytes": 7713
+    },
+    {
+      "id": "mplay3r.radio-livebox",
+      "name": "Livebox Radios (Orange)",
+      "version": "1.0.0",
+      "description": "ISP box micro-plugin adding Orange Livebox local M3U radio bouquet (and French public/private FM IP fallback streams) to the mPlay3r Radio plugin.",
+      "category": "source",
+      "permissions": [
+        "network",
+        "storage"
+      ],
+      "minCoreVersion": "0.1.0",
+      "author": "jezoock",
+      "homepage": "https://github.com/jezoock/mPlay3r-addons",
+      "runtime": "all",
+      "entry": "./dist/radio-livebox.js",
+      "sha256": "4532f4b4c1bed1358c30e6c9070685ed94d1f91aecf8c5e97e57934e9802d2c2",
+      "sizeBytes": 6922
+    },
+    {
+      "id": "mplay3r.radio-sfr",
+      "name": "SFR Box Radios (Neufbox / Red)",
+      "version": "1.0.0",
+      "description": "ISP box micro-plugin adding SFR Box / Neufbox multiposte radio channels (and French FM/DAB+ IP fallback streams) to the mPlay3r Radio plugin.",
+      "category": "source",
+      "permissions": [
+        "network",
+        "storage"
+      ],
+      "minCoreVersion": "0.1.0",
+      "author": "jezoock",
+      "homepage": "https://github.com/jezoock/mPlay3r-addons",
+      "runtime": "all",
+      "entry": "./dist/radio-sfr.js",
+      "sha256": "6025bd0ec8adf51c6d37c29fece34b6a2dd893c7a4d5349c58a693f7fe15f9f0",
+      "sizeBytes": 6866
     },
     {
       "id": "mplay3r.scraper",
@@ -147,6 +201,27 @@
       "entry": "./dist/scraper.js",
       "sha256": "e4ed5ad75a115c9573f899a75d7109b07b50f16dee81ee5f6d9bd316890dc988",
       "sizeBytes": 32902
+    },
+    {
+      "id": "mplay3r.source-subsonic",
+      "name": "Subsonic & Navidrome Connector",
+      "version": "1.0.0",
+      "description": "Connect to self-hosted Subsonic, OpenSubsonic, Navidrome, or Airsonic servers using salted MD5 token authentication, search songs/playlists, play random mixes, and expose a MediaSourceProvider.",
+      "category": "source",
+      "permissions": [
+        "network",
+        "playlist-write",
+        "playback-control",
+        "ui-slot",
+        "storage"
+      ],
+      "minCoreVersion": "0.1.0",
+      "author": "jezoock",
+      "homepage": "https://github.com/jezoock/mPlay3r-addons",
+      "runtime": "all",
+      "entry": "./dist/source-subsonic.js",
+      "sha256": "2f5895ecdb63bacf0ee80d58f30d0b6cf658a39db77c8d1734049e2afd8165b0",
+      "sizeBytes": 22187
     },
     {
       "id": "mplay3r.theme-classic",
