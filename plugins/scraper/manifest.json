@@ -1,0 +1,17 @@
+{
+  "id": "mplay3r.scraper",
+  "name": "Metadata Scraper (Cover Art & Synced Lyrics)",
+  "version": "1.0.0",
+  "description": "100% opt-in metadata enrichment on track change: HD cover art (MusicBrainz + Cover Art Archive), synced .lrc lyrics (LRCLIB), persistent cache, polite rate limiting, and offline resilience.",
+  "category": "scraper",
+  "permissions": [
+    "network",
+    "track-metadata",
+    "ui-slot",
+    "storage"
+  ],
+  "minCoreVersion": "0.1.0",
+  "author": "jezoock",
+  "homepage": "https://github.com/jezoock/mPlay3r-addons",
+  "runtime": "all"
+}

@@ -129,6 +129,26 @@
       "sizeBytes": 7713
     },
     {
+      "id": "mplay3r.scraper",
+      "name": "Metadata Scraper (Cover Art & Synced Lyrics)",
+      "version": "1.0.0",
+      "description": "100% opt-in metadata enrichment on track change: HD cover art (MusicBrainz + Cover Art Archive), synced .lrc lyrics (LRCLIB), persistent cache, polite rate limiting, and offline resilience.",
+      "category": "scraper",
+      "permissions": [
+        "network",
+        "track-metadata",
+        "ui-slot",
+        "storage"
+      ],
+      "minCoreVersion": "0.1.0",
+      "author": "jezoock",
+      "homepage": "https://github.com/jezoock/mPlay3r-addons",
+      "runtime": "all",
+      "entry": "./dist/scraper.js",
+      "sha256": "e4ed5ad75a115c9573f899a75d7109b07b50f16dee81ee5f6d9bd316890dc988",
+      "sizeBytes": 32902
+    },
+    {
       "id": "mplay3r.visualizers",
       "name": "Audio Visualizers Pack",
       "version": "1.0.0",
