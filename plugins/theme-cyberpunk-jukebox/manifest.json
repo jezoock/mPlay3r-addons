@@ -1,0 +1,17 @@
+{
+  "id": "mplay3r.theme-cyberpunk-jukebox",
+  "name": "Cyberpunk Neon Jukebox Theme",
+  "version": "1.0.0",
+  "description": "High-impact visual Cyberpunk Jukebox structural theme: glowing cyan/magenta neon arch, spinning holographic cyber-disc platter, live Canvas 2D FFT neon spectrum & CRT scanlines on getAudioAnalyser(), illuminated A1-D4 jukebox track selector grid, and frameless desktop drag support.",
+  "category": "theme",
+  "permissions": [
+    "theme",
+    "ui-slot",
+    "audio-analyser",
+    "playback-control"
+  ],
+  "minCoreVersion": "0.1.0",
+  "author": "jezoock",
+  "homepage": "https://github.com/jezoock/mPlay3r-addons",
+  "runtime": "all"
+}

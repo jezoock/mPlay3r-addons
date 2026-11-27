@@ -1,0 +1,17 @@
+{
+  "id": "mplay3r.theme-neumorph",
+  "name": "Neumorphism Soft Studio Theme",
+  "version": "1.0.0",
+  "description": "Tactile soft-UI neumorphic structural theme with sculpted dual-shadow controls, concave LCD cavity, Porcelain Light / Graphite Dark toggle, <ds-trigger> controls, and frameless desktop drag support.",
+  "category": "theme",
+  "permissions": [
+    "theme",
+    "ui-slot",
+    "playback-control",
+    "storage"
+  ],
+  "minCoreVersion": "0.1.0",
+  "author": "jezoock",
+  "homepage": "https://github.com/jezoock/mPlay3r-addons",
+  "runtime": "all"
+}

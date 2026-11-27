@@ -244,6 +244,66 @@
       "sizeBytes": 19754
     },
     {
+      "id": "mplay3r.theme-cyberpunk-jukebox",
+      "name": "Cyberpunk Neon Jukebox Theme",
+      "version": "1.0.0",
+      "description": "High-impact visual Cyberpunk Jukebox structural theme: glowing cyan/magenta neon arch, spinning holographic cyber-disc platter, live Canvas 2D FFT neon spectrum & CRT scanlines on getAudioAnalyser(), illuminated A1-D4 jukebox track selector grid, and frameless desktop drag support.",
+      "category": "theme",
+      "permissions": [
+        "theme",
+        "ui-slot",
+        "audio-analyser",
+        "playback-control"
+      ],
+      "minCoreVersion": "0.1.0",
+      "author": "jezoock",
+      "homepage": "https://github.com/jezoock/mPlay3r-addons",
+      "runtime": "all",
+      "entry": "./dist/theme-cyberpunk-jukebox.js",
+      "sha256": "c6fbe250a09602c9e809e644527412f3ca93f3cc597a367c2e4aa3f7367d5b08",
+      "sizeBytes": 22123
+    },
+    {
+      "id": "mplay3r.theme-neumorph",
+      "name": "Neumorphism Soft Studio Theme",
+      "version": "1.0.0",
+      "description": "Tactile soft-UI neumorphic structural theme with sculpted dual-shadow controls, concave LCD cavity, Porcelain Light / Graphite Dark toggle, <ds-trigger> controls, and frameless desktop drag support.",
+      "category": "theme",
+      "permissions": [
+        "theme",
+        "ui-slot",
+        "playback-control",
+        "storage"
+      ],
+      "minCoreVersion": "0.1.0",
+      "author": "jezoock",
+      "homepage": "https://github.com/jezoock/mPlay3r-addons",
+      "runtime": "all",
+      "entry": "./dist/theme-neumorph.js",
+      "sha256": "a188cea9c3fe0530bd7499a38821a3ce82938e0ca8468e19602986e3d86fe0f2",
+      "sizeBytes": 16387
+    },
+    {
+      "id": "mplay3r.theme-seventies",
+      "name": "Seventies Vintage Hi-Fi Theme",
+      "version": "1.0.0",
+      "description": "1970s vintage hi-fi stereo receiver structural theme: walnut woodgrain side cheeks, brushed champagne aluminum faceplate, dual glowing analog VU meter needles driven by getAudioAnalyser(), warm amber/turquoise tuning dial, and frameless desktop drag support.",
+      "category": "theme",
+      "permissions": [
+        "theme",
+        "ui-slot",
+        "audio-analyser",
+        "playback-control"
+      ],
+      "minCoreVersion": "0.1.0",
+      "author": "jezoock",
+      "homepage": "https://github.com/jezoock/mPlay3r-addons",
+      "runtime": "all",
+      "entry": "./dist/theme-seventies.js",
+      "sha256": "3b587bc91a8b75dabe2d18dbbfa1d0565e30ca760064e1fec798509cdd68d2b6",
+      "sizeBytes": 20047
+    },
+    {
       "id": "mplay3r.visualizers",
       "name": "Audio Visualizers Pack",
       "version": "1.0.0",
