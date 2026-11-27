@@ -1,0 +1,19 @@
+{
+  "id": "mplay3r.radio",
+  "name": "Web & FM Radio",
+  "version": "1.0.0",
+  "description": "Stream web radios and FM/DAB+ IP broadcasts via Radio Browser, direct Icecast/SHOUTcast/HLS URLs, ICY live titles, favorites, and ISP box micro-plugins.",
+  "category": "source",
+  "permissions": [
+    "network",
+    "playlist-write",
+    "playback-control",
+    "track-metadata",
+    "ui-slot",
+    "storage"
+  ],
+  "minCoreVersion": "0.1.0",
+  "author": "jezoock",
+  "homepage": "https://github.com/jezoock/mPlay3r-addons",
+  "runtime": "all"
+}
