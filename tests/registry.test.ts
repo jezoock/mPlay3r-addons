@@ -19,8 +19,8 @@ describe('Official registry.json & SHA-256 verified bundles', () => {
 
     assert.equal(doc.schemaVersion, 1);
     assert.ok(
-      doc.plugins.length >= 17,
-      'Expected all 17 official addons including Neumorphism, Seventies Hi-Fi, and Cyberpunk Jukebox themes',
+      doc.plugins.length >= 18,
+      'Expected all 18 official addons including Ember Noir, Neumorphism, Seventies Hi-Fi, and Cyberpunk Jukebox themes',
     );
     const ids = new Set(doc.plugins.map(p => p.id));
     assert.ok(ids.has('mplay3r.radio'));
@@ -36,6 +36,7 @@ describe('Official registry.json & SHA-256 verified bundles', () => {
     assert.ok(ids.has('mplay3r.dsp-enhancer'));
     assert.ok(ids.has('mplay3r.scraper'));
     assert.ok(ids.has('mplay3r.theme-classic'));
+    assert.ok(ids.has('mplay3r.theme-ember-noir'));
     assert.ok(ids.has('mplay3r.theme-neumorph'));
     assert.ok(ids.has('mplay3r.theme-seventies'));
     assert.ok(ids.has('mplay3r.theme-cyberpunk-jukebox'));
