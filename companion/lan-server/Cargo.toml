@@ -1,0 +1,17 @@
+[package]
+name = "mplay3r-lan-server"
+version = "1.0.0"
+description = "Zero-dependency local LAN library sharing micro-server for mPlay3r (PIN/Bearer auth, folder allowlist, HTTP 206 Range streaming, embedded web UI)"
+authors = ["jezoock"]
+license = "MIT"
+edition = "2021"
+
+[dependencies]
+# Zero external dependencies — pure Rust std for minimal binary weight and instant offline builds.
+
+[profile.release]
+codegen-units = 1
+lto = true
+opt-level = "s"
+panic = "abort"
+strip = true
