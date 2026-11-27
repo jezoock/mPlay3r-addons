@@ -1,3 +1,4 @@
+use crate::broadcast::{format_sse_sync_frame, BroadcastHub};
 use crate::range::{mime_type_for_path, parse_http_range, RangeError};
 use crate::security::{
     constant_time_eq, has_traversal_segments, percent_decode, AllowedLibrary, LibraryIndex,
@@ -32,11 +33,13 @@ struct SharedState {
     bearer_token: String,
     library: AllowedLibrary,
     index: LibraryIndex,
+    broadcast: BroadcastHub,
 }
 
 pub struct LanServerHandle {
     local_addr: SocketAddr,
     shutdown_flag: Arc<AtomicBool>,
+    broadcast: BroadcastHub,
     worker: Option<JoinHandle<()>>,
 }
 
@@ -47,6 +50,7 @@ impl LanServerHandle {
 
     pub fn shutdown(&mut self) {
         self.shutdown_flag.store(true, Ordering::SeqCst);
+        self.broadcast.close();
         let _ = TcpStream::connect(self.local_addr);
         if let Some(handle) = self.worker.take() {
             let _ = handle.join();
@@ -67,12 +71,14 @@ pub fn start_lan_server(config: ServerConfig) -> std::io::Result<LanServerHandle
 
     let library = AllowedLibrary::from_dirs(&config.shared_dirs);
     let index = library.scan();
+    let broadcast = BroadcastHub::new();
     let state = Arc::new(SharedState {
         server_name: config.server_name,
         pin: config.pin,
         bearer_token: config.bearer_token,
         library,
         index,
+        broadcast: broadcast.clone(),
     });
     let shutdown_flag = Arc::new(AtomicBool::new(false));
     let loop_flag = Arc::clone(&shutdown_flag);
@@ -95,6 +101,7 @@ pub fn start_lan_server(config: ServerConfig) -> std::io::Result<LanServerHandle
     Ok(LanServerHandle {
         local_addr,
         shutdown_flag,
+        broadcast,
         worker: Some(worker),
     })
 }
@@ -288,6 +295,28 @@ fn handle_connection(mut stream: TcpStream, state: &SharedState) -> std::io::Res
         return handle_playlists(&mut stream, state);
     }
 
+    if req.method == "GET" && req.path == "/api/broadcast/state" {
+        let snap = state.broadcast.current_snapshot();
+        return write_json(&mut stream, "200 OK", &snap.state_json);
+    }
+
+    if req.method == "POST" && req.path == "/api/broadcast/state" {
+        let trimmed = req.body.trim();
+        if !trimmed.starts_with('{') || !trimmed.ends_with('}') {
+            return write_json(
+                &mut stream,
+                "400 Bad Request",
+                r#"{"error":"Broadcast state must be a JSON object"}"#,
+            );
+        }
+        let snap = state.broadcast.update_state(trimmed);
+        return write_json(&mut stream, "200 OK", &snap.state_json);
+    }
+
+    if req.method == "GET" && req.path == "/api/broadcast/events" {
+        return handle_broadcast_sse(&mut stream, state);
+    }
+
     if req.method == "GET" {
         if let Some(track_id) = req.path.strip_prefix("/api/stream/") {
             let clean_id = track_id.trim();
@@ -454,6 +483,49 @@ fn handle_playlists(stream: &mut TcpStream, state: &SharedState) -> std::io::Res
 
     let body = format!(r#"{{"playlists":[{}]}}"#, items.join(","));
     write_json(stream, "200 OK", &body)
+}
+
+fn handle_broadcast_sse(stream: &mut TcpStream, state: &SharedState) -> std::io::Result<()> {
+    let _guard = state.broadcast.register_listener();
+    let headers = "HTTP/1.1 200 OK\r\n\
+         Content-Type: text/event-stream; charset=utf-8\r\n\
+         Cache-Control: no-cache\r\n\
+         Connection: keep-alive\r\n\
+         X-Content-Type-Options: nosniff\r\n\
+         Access-Control-Allow-Origin: *\r\n\r\n";
+    stream.write_all(headers.as_bytes())?;
+
+    let initial = state.broadcast.current_snapshot();
+    stream.write_all(format_sse_sync_frame(&initial).as_bytes())?;
+    stream.flush()?;
+
+    let mut last_seq = initial.sequence;
+    let mut idle_ticks = 0u32;
+    while !state.broadcast.is_closed() {
+        if let Some(next) = state
+            .broadcast
+            .wait_for_update(last_seq, Duration::from_millis(100))
+        {
+            last_seq = next.sequence;
+            idle_ticks = 0;
+            if stream
+                .write_all(format_sse_sync_frame(&next).as_bytes())
+                .is_err()
+                || stream.flush().is_err()
+            {
+                break;
+            }
+        } else {
+            idle_ticks += 1;
+            if idle_ticks >= 150 {
+                idle_ticks = 0;
+                if stream.write_all(b": keepalive\n\n").is_err() || stream.flush().is_err() {
+                    break;
+                }
+            }
+        }
+    }
+    Ok(())
 }
 
 fn stream_audio_file(
@@ -882,6 +954,82 @@ mod tests {
         );
         assert_eq!(status, 416);
 
+        server.shutdown();
+        let _ = fs::remove_dir_all(&dir);
+    }
+
+    #[test]
+    fn streams_sse_listening_party_events_and_tracks_listener_count() {
+        let dir = make_temp_dir("sse");
+        fs::write(dir.join("party.mp3"), b"PARTY-AUDIO").unwrap();
+
+        let mut server = start_lan_server(ServerConfig {
+            bind_addr: "127.0.0.1:0".to_string(),
+            server_name: "Party Host".to_string(),
+            pin: "112233".to_string(),
+            bearer_token: "party-session-token".to_string(),
+            shared_dirs: vec![dir.clone()],
+        })
+        .unwrap();
+        let addr = server.local_addr();
+
+        // SSE endpoint refuses unauthorized connections with HTTP 401.
+        let (status, _, _) = raw_http(
+            addr,
+            "GET /api/broadcast/events HTTP/1.1\r\nHost: localhost\r\n\r\n",
+        );
+        assert_eq!(status, 401);
+
+        // Connect an authorized SSE listener on a separate thread and read initial + live update frames.
+        let mut sse_stream = TcpStream::connect(addr).unwrap();
+        sse_stream
+            .set_read_timeout(Some(Duration::from_secs(3)))
+            .unwrap();
+        sse_stream
+            .write_all(
+                b"GET /api/broadcast/events?token=party-session-token HTTP/1.1\r\nHost: localhost\r\n\r\n",
+            )
+            .unwrap();
+        sse_stream.flush().unwrap();
+
+        let mut received = String::new();
+        let mut buf = [0u8; 1024];
+        // Wait for headers + initial sync frame (listenerCount:1)
+        for _ in 0..10 {
+            let n = sse_stream.read(&mut buf).unwrap();
+            received.push_str(&String::from_utf8_lossy(&buf[..n]));
+            if received.contains("event: sync") {
+                break;
+            }
+        }
+        assert!(received.contains("text/event-stream"));
+        assert!(received.contains(r#""listenerCount":1"#));
+
+        // Host pushes a playing track state update -> listener receives it in real time!
+        let update_body = r#"{"status":"playing","positionSeconds":42.5,"playbackRate":1,"track":{"id":"t1","title":"Live Mix"}}"#;
+        let (post_status, _, post_resp) = raw_http(
+            addr,
+            &format!(
+                "POST /api/broadcast/state HTTP/1.1\r\nHost: localhost\r\nAuthorization: Bearer party-session-token\r\nContent-Length: {}\r\n\r\n{}",
+                update_body.len(),
+                update_body
+            ),
+        );
+        assert_eq!(post_status, 200);
+        assert!(String::from_utf8_lossy(&post_resp).contains(r#""listenerCount":1"#));
+
+        let mut live_chunk = String::new();
+        for _ in 0..10 {
+            let n = sse_stream.read(&mut buf).unwrap();
+            live_chunk.push_str(&String::from_utf8_lossy(&buf[..n]));
+            if live_chunk.contains("Live Mix") {
+                break;
+            }
+        }
+        assert!(live_chunk.contains("event: sync"));
+        assert!(live_chunk.contains(r#""positionSeconds":42.5"#));
+
+        drop(sse_stream);
         server.shutdown();
         let _ = fs::remove_dir_all(&dir);
     }

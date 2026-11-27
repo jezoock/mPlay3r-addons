@@ -25,6 +25,29 @@
       "sizeBytes": 51014
     },
     {
+      "id": "mplay3r.live-broadcast",
+      "name": "Live Broadcast & Listening Party",
+      "version": "1.0.0",
+      "description": "Stream live playback to synchronized listeners over LAN/SSE (with latency compensation, listener counter, session token & optional Icecast push) or P2P WebRTC directly from Web Audio.",
+      "category": "broadcast",
+      "permissions": [
+        "audio-context",
+        "network",
+        "local-server",
+        "playlist-write",
+        "playback-control",
+        "ui-slot",
+        "storage"
+      ],
+      "minCoreVersion": "0.1.0",
+      "author": "jezoock",
+      "homepage": "https://github.com/jezoock/mPlay3r-addons",
+      "runtime": "all",
+      "entry": "./dist/live-broadcast.js",
+      "sha256": "b7596de123ea4321186be85dbf441c0d988975ac13b59f2d301a616a0578a552",
+      "sizeBytes": 48607
+    },
+    {
       "id": "mplay3r.podcasts",
       "name": "Podcasts & Streaming Sources",
       "version": "1.0.0",
