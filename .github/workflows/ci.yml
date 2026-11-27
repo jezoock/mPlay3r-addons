@@ -1,0 +1,66 @@
+name: CI
+
+on:
+  push:
+    branches: ['**']
+  pull_request:
+
+jobs:
+  addons:
+    name: Addons Build, SHA-256 Registry & Tests
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Install dev tooling
+        run: npm install
+      - name: Verify SHA-256 registry & built bundles
+        run: |
+          set +e
+          out=$(npm run check:registry 2>&1)
+          code=$?
+          printf '%s\n' "$out"
+          if [ $code -ne 0 ]; then
+            msg=$(printf '%s\n' "$out" | tail -n 80)
+            msg="${msg//'%'/'%25'}"; msg="${msg//$'\r'/'%0D'}"; msg="${msg//$'\n'/'%0A'}"
+            printf '::error title=Registry check failed::%s\n' "$msg"
+            exit $code
+          fi
+      - name: Typecheck
+        run: |
+          set +e
+          out=$(npm run typecheck 2>&1)
+          code=$?
+          printf '%s\n' "$out"
+          if [ $code -ne 0 ]; then
+            msg=$(printf '%s\n' "$out" | tail -n 80)
+            msg="${msg//'%'/'%25'}"; msg="${msg//$'\r'/'%0D'}"; msg="${msg//$'\n'/'%0A'}"
+            printf '::error title=Typecheck failed::%s\n' "$msg"
+            exit $code
+          fi
+      - name: Lint TypeScript
+        run: |
+          set +e
+          out=$(npm run lint 2>&1)
+          code=$?
+          printf '%s\n' "$out"
+          if [ $code -ne 0 ]; then
+            msg=$(printf '%s\n' "$out" | tail -n 80)
+            msg="${msg//'%'/'%25'}"; msg="${msg//$'\r'/'%0D'}"; msg="${msg//$'\n'/'%0A'}"
+            printf '::error title=Lint failed::%s\n' "$msg"
+            exit $code
+          fi
+      - name: Run unit tests
+        run: |
+          set +e
+          out=$(npm test 2>&1)
+          code=$?
+          printf '%s\n' "$out"
+          if [ $code -ne 0 ]; then
+            msg=$(printf '%s\n' "$out" | tail -n 80)
+            msg="${msg//'%'/'%25'}"; msg="${msg//$'\r'/'%0D'}"; msg="${msg//$'\n'/'%0A'}"
+            printf '::error title=Tests failed::%s\n' "$msg"
+            exit $code
+          fi

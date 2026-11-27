@@ -1,0 +1,15 @@
+{
+  "id": "mplay3r.radio-freebox",
+  "name": "Freebox Radios (Multiposte)",
+  "version": "1.0.0",
+  "description": "ISP box micro-plugin adding Freebox multiposte radio channels (and French public FM IP fallback streams) to the mPlay3r Radio plugin.",
+  "category": "source",
+  "permissions": [
+    "network",
+    "storage"
+  ],
+  "minCoreVersion": "0.1.0",
+  "author": "jezoock",
+  "homepage": "https://github.com/jezoock/mPlay3r-addons",
+  "runtime": "all"
+}

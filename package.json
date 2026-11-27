@@ -1,0 +1,26 @@
+{
+  "name": "mplay3r-addons",
+  "version": "0.1.0",
+  "type": "module",
+  "private": true,
+  "description": "Official plugins, themes, ISP box radio providers, and SHA-256 verified JSON registry for mPlay3r.",
+  "license": "MIT",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "build:registry": "node scripts/build-registry.mjs",
+    "check:registry": "node scripts/build-registry.mjs --check",
+    "test": "node --import ./scripts/ts-loader.mjs --test tests/*.test.ts",
+    "typecheck": "tsc --noEmit",
+    "lint": "eslint ."
+  },
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "@types/node": "^22.15.0",
+    "eslint": "^10.14.0",
+    "globals": "^17.14.0",
+    "typescript": "~5.8.3",
+    "typescript-eslint": "^8.72.1"
+  }
+}

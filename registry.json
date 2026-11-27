@@ -1,0 +1,46 @@
+{
+  "schemaVersion": 1,
+  "name": "mPlay3r Official Addons",
+  "plugins": [
+    {
+      "id": "mplay3r.radio",
+      "name": "Web & FM Radio",
+      "version": "1.0.0",
+      "description": "Stream web radios and FM/DAB+ IP broadcasts via Radio Browser, direct Icecast/SHOUTcast/HLS URLs, ICY live titles, favorites, and ISP box micro-plugins.",
+      "category": "source",
+      "permissions": [
+        "network",
+        "playlist-write",
+        "playback-control",
+        "track-metadata",
+        "ui-slot",
+        "storage"
+      ],
+      "minCoreVersion": "0.1.0",
+      "author": "jezoock",
+      "homepage": "https://github.com/jezoock/mPlay3r-addons",
+      "runtime": "all",
+      "entry": "./dist/radio.js",
+      "sha256": "cc6f0d71dd31d08fa9d62a1c291f297de8b697efdc7630422843983caee26753",
+      "sizeBytes": 28405
+    },
+    {
+      "id": "mplay3r.radio-freebox",
+      "name": "Freebox Radios (Multiposte)",
+      "version": "1.0.0",
+      "description": "ISP box micro-plugin adding Freebox multiposte radio channels (and French public FM IP fallback streams) to the mPlay3r Radio plugin.",
+      "category": "source",
+      "permissions": [
+        "network",
+        "storage"
+      ],
+      "minCoreVersion": "0.1.0",
+      "author": "jezoock",
+      "homepage": "https://github.com/jezoock/mPlay3r-addons",
+      "runtime": "all",
+      "entry": "./dist/radio-freebox.js",
+      "sha256": "868eb7d46db033ddc509c00470004cb5b997e43a874f702c648e421161fc4ae5",
+      "sizeBytes": 7713
+    }
+  ]
+}
