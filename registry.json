@@ -149,6 +149,26 @@
       "sizeBytes": 32902
     },
     {
+      "id": "mplay3r.theme-classic",
+      "name": "Structural Themes (Winamp Classic & Hi-Fi Rack)",
+      "version": "1.0.0",
+      "description": "Full-layout structural themes built with registerTheme() and <ds-trigger>: Winamp Classic 2.x deck and brushed Hi-Fi Rack component with zero-interruption hot switching.",
+      "category": "theme",
+      "permissions": [
+        "theme",
+        "ui-slot",
+        "playback-control",
+        "storage"
+      ],
+      "minCoreVersion": "0.1.0",
+      "author": "jezoock",
+      "homepage": "https://github.com/jezoock/mPlay3r-addons",
+      "runtime": "all",
+      "entry": "./dist/theme-classic.js",
+      "sha256": "401ce61a86406b9ad274e8ee5b3713cc936f59b7fbc182fe67b0cadec8c3453d",
+      "sizeBytes": 19754
+    },
+    {
       "id": "mplay3r.visualizers",
       "name": "Audio Visualizers Pack",
       "version": "1.0.0",
@@ -166,6 +186,26 @@
       "entry": "./dist/visualizers.js",
       "sha256": "6eebc8317452a2ebd46b7d03314134e9e1f5c1e467ad818beafc4fb37e7a10f1",
       "sizeBytes": 23861
+    },
+    {
+      "id": "mplay3r.wsz-skins",
+      "name": "Winamp .wsz Skin Loader",
+      "version": "1.0.0",
+      "description": "Import classic Winamp .wsz skin archives (local file or URL), extract BMP sprites (main.bmp, cbuttons.bmp, eqmain.bmp), parse pledit.txt & viscolor.txt, and render an interactive <ds-trigger> skinned deck.",
+      "category": "theme",
+      "permissions": [
+        "theme",
+        "ui-slot",
+        "network",
+        "storage"
+      ],
+      "minCoreVersion": "0.1.0",
+      "author": "jezoock",
+      "homepage": "https://github.com/jezoock/mPlay3r-addons",
+      "runtime": "all",
+      "entry": "./dist/wsz-skins.js",
+      "sha256": "1f32abd6bc917e45ea59d402534649384db9a7558f6dc28523896f1e179b1d04",
+      "sizeBytes": 30830
     }
   ]
 }

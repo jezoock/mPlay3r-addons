@@ -1,0 +1,17 @@
+{
+  "id": "mplay3r.theme-classic",
+  "name": "Structural Themes (Winamp Classic & Hi-Fi Rack)",
+  "version": "1.0.0",
+  "description": "Full-layout structural themes built with registerTheme() and <ds-trigger>: Winamp Classic 2.x deck and brushed Hi-Fi Rack component with zero-interruption hot switching.",
+  "category": "theme",
+  "permissions": [
+    "theme",
+    "ui-slot",
+    "playback-control",
+    "storage"
+  ],
+  "minCoreVersion": "0.1.0",
+  "author": "jezoock",
+  "homepage": "https://github.com/jezoock/mPlay3r-addons",
+  "runtime": "all"
+}

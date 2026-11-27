@@ -1,0 +1,17 @@
+{
+  "id": "mplay3r.wsz-skins",
+  "name": "Winamp .wsz Skin Loader",
+  "version": "1.0.0",
+  "description": "Import classic Winamp .wsz skin archives (local file or URL), extract BMP sprites (main.bmp, cbuttons.bmp, eqmain.bmp), parse pledit.txt & viscolor.txt, and render an interactive <ds-trigger> skinned deck.",
+  "category": "theme",
+  "permissions": [
+    "theme",
+    "ui-slot",
+    "network",
+    "storage"
+  ],
+  "minCoreVersion": "0.1.0",
+  "author": "jezoock",
+  "homepage": "https://github.com/jezoock/mPlay3r-addons",
+  "runtime": "all"
+}
