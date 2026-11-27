@@ -1,0 +1,17 @@
+{
+  "id": "mplay3r.theme-seventies",
+  "name": "Seventies Vintage Hi-Fi Theme",
+  "version": "1.0.0",
+  "description": "1970s vintage hi-fi stereo receiver structural theme: walnut woodgrain side cheeks, brushed champagne aluminum faceplate, dual glowing analog VU meter needles driven by getAudioAnalyser(), warm amber/turquoise tuning dial, and frameless desktop drag support.",
+  "category": "theme",
+  "permissions": [
+    "theme",
+    "ui-slot",
+    "audio-analyser",
+    "playback-control"
+  ],
+  "minCoreVersion": "0.1.0",
+  "author": "jezoock",
+  "homepage": "https://github.com/jezoock/mPlay3r-addons",
+  "runtime": "all"
+}
