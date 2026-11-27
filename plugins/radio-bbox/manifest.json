@@ -1,0 +1,15 @@
+{
+  "id": "mplay3r.radio-bbox",
+  "name": "Bbox Radios (Bouygues)",
+  "version": "1.0.0",
+  "description": "ISP box micro-plugin adding Bouygues Bbox local M3U radio bouquet (and French FM/DAB+ IP fallback streams) to the mPlay3r Radio plugin.",
+  "category": "source",
+  "permissions": [
+    "network",
+    "storage"
+  ],
+  "minCoreVersion": "0.1.0",
+  "author": "jezoock",
+  "homepage": "https://github.com/jezoock/mPlay3r-addons",
+  "runtime": "all"
+}

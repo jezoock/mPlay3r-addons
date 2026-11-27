@@ -19,13 +19,17 @@ describe('Official registry.json & SHA-256 verified bundles', () => {
 
     assert.equal(doc.schemaVersion, 1);
     assert.ok(
-      doc.plugins.length >= 10,
-      'Expected all 10 official addons including mplay3r.theme-classic and mplay3r.wsz-skins',
+      doc.plugins.length >= 14,
+      'Expected all 14 official addons including ISP box radios (Bbox, Livebox, SFR) and Subsonic/Navidrome',
     );
     const ids = new Set(doc.plugins.map(p => p.id));
     assert.ok(ids.has('mplay3r.radio'));
     assert.ok(ids.has('mplay3r.radio-freebox'));
+    assert.ok(ids.has('mplay3r.radio-bbox'));
+    assert.ok(ids.has('mplay3r.radio-livebox'));
+    assert.ok(ids.has('mplay3r.radio-sfr'));
     assert.ok(ids.has('mplay3r.podcasts'));
+    assert.ok(ids.has('mplay3r.source-subsonic'));
     assert.ok(ids.has('mplay3r.library-share'));
     assert.ok(ids.has('mplay3r.live-broadcast'));
     assert.ok(ids.has('mplay3r.visualizers'));

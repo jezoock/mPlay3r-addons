@@ -1,0 +1,18 @@
+{
+  "id": "mplay3r.source-subsonic",
+  "name": "Subsonic & Navidrome Connector",
+  "version": "1.0.0",
+  "description": "Connect to self-hosted Subsonic, OpenSubsonic, Navidrome, or Airsonic servers using salted MD5 token authentication, search songs/playlists, play random mixes, and expose a MediaSourceProvider.",
+  "category": "source",
+  "permissions": [
+    "network",
+    "playlist-write",
+    "playback-control",
+    "ui-slot",
+    "storage"
+  ],
+  "minCoreVersion": "0.1.0",
+  "author": "jezoock",
+  "homepage": "https://github.com/jezoock/mPlay3r-addons",
+  "runtime": "all"
+}
