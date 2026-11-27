@@ -3,6 +3,25 @@
   "name": "mPlay3r Official Addons",
   "plugins": [
     {
+      "id": "mplay3r.dsp-enhancer",
+      "name": "DSP Enhancer (Bass & Stereo Width)",
+      "version": "1.0.0",
+      "description": "Lightweight AudioWorklet DSP effect plugin chained onto getAudioContext(): harmonic Bass Enhancer, Mid/Side Stereo Widener, and lossless instant Bypass.",
+      "category": "dsp",
+      "permissions": [
+        "audio-context",
+        "ui-slot",
+        "storage"
+      ],
+      "minCoreVersion": "0.1.0",
+      "author": "jezoock",
+      "homepage": "https://github.com/jezoock/mPlay3r-addons",
+      "runtime": "all",
+      "entry": "./dist/dsp-enhancer.js",
+      "sha256": "56ee41b1ccc76d8b083fc24c0061d7bdb8125cc6d4103d25fc49ba7072098778",
+      "sizeBytes": 14881
+    },
+    {
       "id": "mplay3r.library-share",
       "name": "Local Library Share (LAN)",
       "version": "1.0.0",
@@ -108,6 +127,25 @@
       "entry": "./dist/radio-freebox.js",
       "sha256": "868eb7d46db033ddc509c00470004cb5b997e43a874f702c648e421161fc4ae5",
       "sizeBytes": 7713
+    },
+    {
+      "id": "mplay3r.visualizers",
+      "name": "Audio Visualizers Pack",
+      "version": "1.0.0",
+      "description": "Lightweight audio-reactive visualizers powered by getAudioAnalyser(): Winamp spectrum analyzer with peak-hold, zero-crossing oscilloscope, WebGL GLSL shader, and fullscreen mode.",
+      "category": "visualizer",
+      "permissions": [
+        "audio-analyser",
+        "ui-slot",
+        "storage"
+      ],
+      "minCoreVersion": "0.1.0",
+      "author": "jezoock",
+      "homepage": "https://github.com/jezoock/mPlay3r-addons",
+      "runtime": "all",
+      "entry": "./dist/visualizers.js",
+      "sha256": "6eebc8317452a2ebd46b7d03314134e9e1f5c1e467ad818beafc4fb37e7a10f1",
+      "sizeBytes": 23861
     }
   ]
 }
