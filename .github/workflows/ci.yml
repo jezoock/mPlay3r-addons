@@ -64,3 +64,15 @@ jobs:
             printf '::error title=Tests failed::%s\n' "$msg"
             exit $code
           fi
+      - name: Run Rust LAN companion security & streaming tests
+        run: |
+          set +e
+          out=$(RUSTFLAGS="-D warnings" cargo test --manifest-path companion/lan-server/Cargo.toml 2>&1)
+          code=$?
+          printf '%s\n' "$out"
+          if [ $code -ne 0 ]; then
+            msg=$(printf '%s\n' "$out" | tail -n 80)
+            msg="${msg//'%'/'%25'}"; msg="${msg//$'\r'/'%0D'}"; msg="${msg//$'\n'/'%0A'}"
+            printf '::error title=Rust LAN server tests failed::%s\n' "$msg"
+            exit $code
+          fi

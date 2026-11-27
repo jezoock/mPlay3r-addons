@@ -3,6 +3,28 @@
   "name": "mPlay3r Official Addons",
   "plugins": [
     {
+      "id": "mplay3r.library-share",
+      "name": "Local Library Share (LAN)",
+      "version": "1.0.0",
+      "description": "Share selected local music folders over LAN with PIN/Bearer authentication, scannable QR code, embedded <mplay3r-app> web UI, HTTP 206 Range streaming, and a remote LAN client for Web & Desktop.",
+      "category": "broadcast",
+      "permissions": [
+        "network",
+        "local-server",
+        "playlist-write",
+        "playback-control",
+        "ui-slot",
+        "storage"
+      ],
+      "minCoreVersion": "0.1.0",
+      "author": "jezoock",
+      "homepage": "https://github.com/jezoock/mPlay3r-addons",
+      "runtime": "all",
+      "entry": "./dist/library-share.js",
+      "sha256": "32fa913b40039e56a605507199b4acf0238501c0806db4a03f88bd4f3c3576fa",
+      "sizeBytes": 51014
+    },
+    {
       "id": "mplay3r.podcasts",
       "name": "Podcasts & Streaming Sources",
       "version": "1.0.0",
