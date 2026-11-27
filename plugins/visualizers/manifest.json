@@ -1,0 +1,16 @@
+{
+  "id": "mplay3r.visualizers",
+  "name": "Audio Visualizers Pack",
+  "version": "1.0.0",
+  "description": "Lightweight audio-reactive visualizers powered by getAudioAnalyser(): Winamp spectrum analyzer with peak-hold, zero-crossing oscilloscope, WebGL GLSL shader, and fullscreen mode.",
+  "category": "visualizer",
+  "permissions": [
+    "audio-analyser",
+    "ui-slot",
+    "storage"
+  ],
+  "minCoreVersion": "0.1.0",
+  "author": "jezoock",
+  "homepage": "https://github.com/jezoock/mPlay3r-addons",
+  "runtime": "all"
+}

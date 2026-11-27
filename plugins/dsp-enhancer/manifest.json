@@ -1,0 +1,16 @@
+{
+  "id": "mplay3r.dsp-enhancer",
+  "name": "DSP Enhancer (Bass & Stereo Width)",
+  "version": "1.0.0",
+  "description": "Lightweight AudioWorklet DSP effect plugin chained onto getAudioContext(): harmonic Bass Enhancer, Mid/Side Stereo Widener, and lossless instant Bypass.",
+  "category": "dsp",
+  "permissions": [
+    "audio-context",
+    "ui-slot",
+    "storage"
+  ],
+  "minCoreVersion": "0.1.0",
+  "author": "jezoock",
+  "homepage": "https://github.com/jezoock/mPlay3r-addons",
+  "runtime": "all"
+}
