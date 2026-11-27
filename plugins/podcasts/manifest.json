@@ -1,0 +1,19 @@
+{
+  "id": "mplay3r.podcasts",
+  "name": "Podcasts & Streaming Sources",
+  "version": "1.0.0",
+  "description": "Search and subscribe to RSS/Atom podcasts (iTunes & Podcast Index), resolve streaming platform links to open RSS feeds, resume playback per episode, control speed (0.75x-2x), skip -15s/+30s, download episodes offline, and connect open MediaSourceProvider addons.",
+  "category": "source",
+  "permissions": [
+    "network",
+    "playlist-write",
+    "playback-control",
+    "track-metadata",
+    "ui-slot",
+    "storage"
+  ],
+  "minCoreVersion": "0.1.0",
+  "author": "jezoock",
+  "homepage": "https://github.com/jezoock/mPlay3r-addons",
+  "runtime": "all"
+}

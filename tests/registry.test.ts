@@ -18,7 +18,11 @@ describe('Official registry.json & SHA-256 verified bundles', () => {
     };
 
     assert.equal(doc.schemaVersion, 1);
-    assert.ok(doc.plugins.length >= 2, 'Expected at least mplay3r.radio and mplay3r.radio-freebox');
+    assert.ok(doc.plugins.length >= 3, 'Expected at least mplay3r.radio, mplay3r.radio-freebox, and mplay3r.podcasts');
+    const ids = new Set(doc.plugins.map(p => p.id));
+    assert.ok(ids.has('mplay3r.radio'));
+    assert.ok(ids.has('mplay3r.radio-freebox'));
+    assert.ok(ids.has('mplay3r.podcasts'));
 
     for (const entry of doc.plugins) {
       assert.ok(entry.entry && entry.entry.startsWith('./dist/'), `Unexpected entry path for ${entry.id}`);

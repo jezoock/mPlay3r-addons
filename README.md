@@ -12,6 +12,7 @@ https://raw.githubusercontent.com/jezoock/mPlay3r-addons/main/registry.json
 
 | ID | Category | Description |
 | :--- | :--- | :--- |
+| `mplay3r.podcasts` | `source` | RSS/Atom podcasts (iTunes & Podcast Index search), streaming platform link resolution (Apple Podcasts, Spotify, HTML RSS autodiscovery), per-episode resume, playback speed (`0.75×`–`2×`), `-15s / +30s` skips, chapters, offline downloads, and `MediaSourceProvider` discovery. |
 | `mplay3r.radio` | `source` | Web & FM/DAB+ IP radios via Radio Browser, direct Icecast/SHOUTcast/HLS streams, `LIVE` badge, auto-reconnect, ICY `StreamTitle` metadata, favorites, and extensible `RadioProvider` discovery. |
 | `mplay3r.radio-freebox` | `source` | Freebox multiposte micro-plugin implementing `RadioProvider` (filters Freebox M3U radio channels + French public FM IP stream fallback). |
 
