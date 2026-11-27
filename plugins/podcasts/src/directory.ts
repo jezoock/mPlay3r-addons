@@ -340,7 +340,7 @@ function pickBestPodcastMatch(results: PodcastSearchResult[], hint: string): Pod
   let bestScore = -1;
   for (const item of results) {
     const candidate = normalizeLookupName(item.title);
-    let score = 0;
+    let score: number;
     if (candidate === target) {
       score = 100;
     } else if (candidate.includes(target) || target.includes(candidate)) {

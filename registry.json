@@ -21,8 +21,8 @@
       "homepage": "https://github.com/jezoock/mPlay3r-addons",
       "runtime": "all",
       "entry": "./dist/podcasts.js",
-      "sha256": "fbdbee95601dbe51598143c174c4b5b4ec39d23a64bbd6ecd8a9dd9fe6e03c75",
-      "sizeBytes": 79079
+      "sha256": "b8180719ffe7fab30649452477e172c14d8da599035cafc3eb9ad3d5c247f4a5",
+      "sizeBytes": 79075
     },
     {
       "id": "mplay3r.radio",

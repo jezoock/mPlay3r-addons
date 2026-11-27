@@ -743,7 +743,7 @@ function pickBestPodcastMatch(results, hint) {
     let bestScore = -1;
     for (const item of results){
         const candidate = normalizeLookupName(item.title);
-        let score = 0;
+        let score;
         if (candidate === target) {
             score = 100;
         } else if (candidate.includes(target) || target.includes(candidate)) {
