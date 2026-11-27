@@ -19,8 +19,8 @@ describe('Official registry.json & SHA-256 verified bundles', () => {
 
     assert.equal(doc.schemaVersion, 1);
     assert.ok(
-      doc.plugins.length >= 7,
-      'Expected at least 7 official addons including visualizers and dsp-enhancer',
+      doc.plugins.length >= 8,
+      'Expected at least 8 official addons including mplay3r.scraper',
     );
     const ids = new Set(doc.plugins.map(p => p.id));
     assert.ok(ids.has('mplay3r.radio'));
@@ -30,6 +30,7 @@ describe('Official registry.json & SHA-256 verified bundles', () => {
     assert.ok(ids.has('mplay3r.live-broadcast'));
     assert.ok(ids.has('mplay3r.visualizers'));
     assert.ok(ids.has('mplay3r.dsp-enhancer'));
+    assert.ok(ids.has('mplay3r.scraper'));
 
     for (const entry of doc.plugins) {
       assert.ok(entry.entry && entry.entry.startsWith('./dist/'), `Unexpected entry path for ${entry.id}`);
