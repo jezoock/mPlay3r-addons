@@ -304,6 +304,26 @@
       "sizeBytes": 16387
     },
     {
+      "id": "mplay3r.theme-prism-glass",
+      "name": "Prism Glass Periwinkle Theme",
+      "version": "1.0.0",
+      "description": "Luminous periwinkle & orchid glassmorphism structural theme: frosted translucent cards with crisp white rims, squircle-in-squircle artwork frame, double-ring glass buttons, coral-red Play/Pause, white/coral-dot scrubber with remaining time (-m:ss), Collections strip, floating frosted mini-player, and frameless desktop drag support.",
+      "category": "theme",
+      "permissions": [
+        "theme",
+        "ui-slot",
+        "playback-control",
+        "storage"
+      ],
+      "minCoreVersion": "0.1.0",
+      "author": "jezoock",
+      "homepage": "https://github.com/jezoock/mPlay3r-addons",
+      "runtime": "all",
+      "entry": "./dist/theme-prism-glass.js",
+      "sha256": "8e8012dd90e2cdd6010a90aa9aba62c3db98cbee4ef075e21f5151d8eb20fdca",
+      "sizeBytes": 39718
+    },
+    {
       "id": "mplay3r.theme-seventies",
       "name": "Seventies Vintage Hi-Fi Theme",
       "version": "1.0.0",
