@@ -1,0 +1,17 @@
+{
+  "id": "mplay3r.theme-ember-noir",
+  "name": "Ember Noir Dark Neumorph Theme",
+  "version": "1.0.0",
+  "description": "Ultra-sleek matte charcoal dark-neumorphic structural theme with fiery ember-orange Play/Pause button, obsidian smoldering-rose circular medallion, ember-to-gold scrubber with glowing amber dot, dual Now Playing / Tracklist views, favorites persistence, and frameless desktop drag support.",
+  "category": "theme",
+  "permissions": [
+    "theme",
+    "ui-slot",
+    "playback-control",
+    "storage"
+  ],
+  "minCoreVersion": "0.1.0",
+  "author": "jezoock",
+  "homepage": "https://github.com/jezoock/mPlay3r-addons",
+  "runtime": "all"
+}
