@@ -1,0 +1,17 @@
+{
+  "id": "mplay3r.theme-prism-glass",
+  "name": "Prism Glass Periwinkle Theme",
+  "version": "1.0.0",
+  "description": "Luminous periwinkle & orchid glassmorphism structural theme: frosted translucent cards with crisp white rims, squircle-in-squircle artwork frame, double-ring glass buttons, coral-red Play/Pause, white/coral-dot scrubber with remaining time (-m:ss), Collections strip, floating frosted mini-player, and frameless desktop drag support.",
+  "category": "theme",
+  "permissions": [
+    "theme",
+    "ui-slot",
+    "playback-control",
+    "storage"
+  ],
+  "minCoreVersion": "0.1.0",
+  "author": "jezoock",
+  "homepage": "https://github.com/jezoock/mPlay3r-addons",
+  "runtime": "all"
+}
